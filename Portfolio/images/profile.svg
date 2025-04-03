@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#333"/>
+  <circle cx="150" cy="120" r="60" fill="#ffb000"/>
+  <rect x="90" y="190" width="120" height="100" fill="#ffb000"/>
+  <text x="150" y="270" font-family="Arial" font-size="24" fill="#333" text-anchor="middle">Mohammed Imaad</text>
+</svg>
