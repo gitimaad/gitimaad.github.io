@@ -1,0 +1,36 @@
+// Google Apps Script code to be deployed as a Web App
+// Follow these steps to set up:
+// 1. Go to https://script.google.com/ and create a new project
+// 2. Copy and paste this code into the script editor
+// 3. Click on Deploy > New deployment
+// 4. Select type: Web app
+// 5. Set "Who has access" to "Anyone" (or "Anyone, even anonymous" in older versions)
+// 6. Click Deploy and copy the Web App URL
+// 7. Use this URL in the script.js file
+
+function doPost(e) {
+  // Parse the JSON data received from the form
+  var data = JSON.parse(e.postData.contents);
+  
+  // Get the active spreadsheet and the first sheet
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = spreadsheet.getSheets()[0];
+  
+  // Check if the sheet has headers, if not add them
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Name', 'Email', 'Timestamp']);
+  }
+  
+  // Append the new data to the sheet
+  sheet.appendRow([
+    data.name,
+    data.email,
+    new Date().toLocaleString()
+  ]);
+  
+  // Return a success response
+  return ContentService.createTextOutput(JSON.stringify({
+    'result': 'success',
+    'message': 'Data added to Google Sheets'
+  })).setMimeType(ContentService.MimeType.JSON);
+}
