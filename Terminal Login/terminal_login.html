@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-title">Terminal Login</div>
+        </div>
+        <div class="terminal-content">
+            <div class="terminal-prompt">
+                <span class="prompt-symbol">$</span> <span class="prompt-text">Please enter your credentials:</span>
+            </div>
+            <form id="login-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required autocomplete="off">
+                    </div>
+                    <div class="input-group email-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group" id="captcha-group">
+                        <label for="captcha">CAPTCHA Verification:</label>
+                        <div class="captcha-challenge">
+                            <div id="captcha-text"></div>
+                            <input type="text" id="captcha-input" name="captcha" required autocomplete="off" placeholder="type the CAPTCHA here">
+                            <button type="button" id="refresh-captcha" class="otp-btn">↻</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="submit" id="login-btn">enter</button>
+                </div>
+            </form>
+            <div id="message" class="hidden">
+                <span class="prompt-symbol">$</span> <span class="prompt-text">login registered!</span><br>
+                <span class="prompt-symbol">$</span> <span class="prompt-text">redirecting to portfolio...</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
